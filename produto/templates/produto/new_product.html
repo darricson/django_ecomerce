@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% extends 'produto/base.html' %}
+{% load bootstrap4 %}
+
+{% block title %} Produto {% endblock %}
+
+{% block content %}
+<div class="container">
+    <h3>Cadastro de produtos</h3><hr>
+    <div class="row">
+        <div class="col-3"> </div>
+        <div class="col col-6">
+            <form action="{% url 'product_new' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                {% buttons %}
+                    <button type="submit" class="btn btn-primary">salvar</button>
+                {% endbuttons %}
+            </form> 
+        </div><!---fim da div form-->
+    </div>
+</div><!--end div container-->
+{% endblock %}

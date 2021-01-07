@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+{% extends 'produto/base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+
+{% block title %} Clientes {% endblock %}
+
+{% block content %}
+            <!--carosel slideshow-->
+  <div class="container-fluid">
+      <div id="my_slideshow" class="carousel slide " data-ride="carousel" >
+          <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="{% static '../static/10.jpg' %}" class="mw-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="{% static '../static/12.jpg' %}" class="mw-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="{% static '../static/11.jpg' %}" class="mw-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="{% static '../static/03.png' %}" class="mw-100" alt="...">
+              </div>
+          </div>
+        <a class="carousel-control-prev" href="#my_slideshow" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden"></span>
+        </a>
+        <a class="carousel-control-next" href="#my_slideshow" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden"></span>
+        </a>
+      </div>
+  </div>
+              <!--end carosel slideshow-->
+
+ <br/>
+  <section id="services" class="section-padding">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2 class="section-title wow fadeInDown" data-wow-delay="0.3s">Nossos serviços</h2><br/>
+        <div class="shape wow fadeInDown" data-wow-delay="0.3s"></div>
+      </div>
+      <div class="row">
+        {% for produto in produtos %}
+        <div class="col-lg-6 col-md-12 col-xs-12">
+          <div class="team-item wow fadeInRight" data-wow-delay="0.2s">
+           <div class="team-img">
+             <img class="img-fluid" src="{{ produto.picture.thumb.url }}" alt="">
+           </div>
+           <div class="contetn">
+             <div class="info-text">
+               <h3><a href="#">{{ produto.name }}</a></h3>
+               <p>{{ produto.price }}</p>
+             </div>
+             <p>{{ produto.information }}</p>
+             <!--
+             <ul class="social-icons">
+               <li><a href="#"><i class="lni-facebook-filled" aria-hidden="true"></i></a></li>
+               <li><a href="#"><i class="lni-twitter-filled" aria-hidden="true"></i></a></li>
+               <li><a href="#"><i class="lni-instagram-filled" aria-hidden="true"></i></a></li>
+             </ul>
+             -->
+           </div>
+         </div>
+         </div>
+       
+
+<!--
+       <div class="col-md-6 col-lg-4 col-xs-12">
+          <div class="team-item wow fadeInRight" data-wow-delay="0.3s">
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top img-fluid" src="{{ produto.picture.thumb.url }}">
+                <div class="card-body">
+                  <h5 class="card-title">{{ produto.name }}</h5>
+                  <p class="card-text">{{ produto.information }}</p><hr>
+                  <p class="text-center">R$ {{ produto.price }}</p>
+                  <div class="d-grid gap-2 text-center">
+                    <button type="button" class="btn btn-outline-success">comprar</button>
+                  </div>
+                </div>
+            </div>
+          </div>
+         </div>
+
+
+          
+        -->
+        {% endfor %}
+      </div>
+      <!--end row-->
+    </div>
+  </section>
+  <!--end section-->
+
+
+{% endblock %}
